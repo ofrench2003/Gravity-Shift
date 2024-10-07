@@ -1,27 +1,32 @@
 extends CharacterBody2D
 
-enum {UP, DOWN, LEFT, RIGHT}
+## ANIMATION VARIABLES ##
 @onready var animation = $AnimationTree
 var blendSpeed = 15
-
 var downVal = 0
 var leftVal = 0
 var rightVal = 0
 
+## TRAIL VARIABLES ##
 var trailScene = preload("res://Scenes&Scripts/player/trail.tscn")
 
+## CONTROL VARIABLES ##
+enum {UP, DOWN, LEFT, RIGHT}
 var gravity = 20
 var direction = Vector2(0, gravity)
 var directionMagnitude = DOWN
 var slowSpeed = 10
 
+
 func _ready() -> void:
 	var trailInstance = trailScene.instantiate()
 	add_sibling.call_deferred(trailInstance)
 
+
 func _physics_process(delta: float) -> void:
 	
-	## CONTROLS
+	
+	## CONTROLS ##
 	if Input.is_action_just_pressed("fullscreen"):
 		if DisplayServer.window_get_mode() == DisplayServer.WINDOW_MODE_EXCLUSIVE_FULLSCREEN:
 			DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
@@ -30,7 +35,8 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("quit"):
 		get_tree().quit()
 	
-	## GRAVITY CONTROL
+	
+	## GRAVITY CONTROL ##
 	if Input.is_action_pressed("up"):
 		direction = Vector2(0, -gravity)
 		directionMagnitude = UP
@@ -47,6 +53,7 @@ func _physics_process(delta: float) -> void:
 	velocity += direction
 	move_and_slide()
 
+
 	## FRICTION
 	if (is_on_floor() or is_on_ceiling()) and directionMagnitude in [UP, DOWN]:
 		velocity.x = lerpf(velocity.x, 0, delta * slowSpeed)
@@ -54,7 +61,8 @@ func _physics_process(delta: float) -> void:
 		if directionMagnitude in [LEFT, RIGHT]:
 			velocity.y = lerpf(velocity.y, 0, delta * slowSpeed)
 	
-	## ANIMATIONS
+	
+	## ANIMATIONS ##
 	animation["parameters/down/blend_amount"] = downVal
 	animation["parameters/left/blend_amount"] = leftVal
 	animation["parameters/right/blend_amount"] = rightVal

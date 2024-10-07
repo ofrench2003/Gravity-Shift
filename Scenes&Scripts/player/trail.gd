@@ -4,7 +4,7 @@ var line = Line2D
 var trailLength = 20
 var trailQueue : Array
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	var pos = get_parent().get_node_or_null("player").global_position
 	trailQueue.push_front(pos)
 	if trailQueue.size() > trailLength:
