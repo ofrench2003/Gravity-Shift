@@ -1,0 +1,151 @@
+[gd_scene load_steps=22 format=3 uid="uid://h5v17w75h36u"]
+
+[ext_resource type="Script" path="res://Scenes&Scripts/levelElements/portal.gd" id="1_5p0td"]
+[ext_resource type="Texture2D" uid="uid://ko2827gie2qg" path="res://Assets/pixels.png" id="1_skaiv"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_q3djh"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_o0ndt"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_87fs2"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mv8vk"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cdylr"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ijw6e"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2bmgs"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8b0n4"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pmomf"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_q3djh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_o0ndt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_87fs2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mv8vk")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cdylr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ijw6e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_2bmgs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8b0n4")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vqyxr"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mdws8"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pacoc"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sqoo3"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewr0n"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(64, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_smd4n"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(80, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0alce"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(96, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ewwrw"]
+atlas = ExtResource("1_skaiv")
+region = Rect2(112, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_s3gdp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vqyxr")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mdws8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pacoc")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sqoo3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewr0n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_smd4n")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_0alce")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ewwrw")
+}],
+"loop": true,
+"name": &"default",
+"speed": 16.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_18trn"]
+radius = 82.1523
+
+[node name="portal" type="Area2D"]
+script = ExtResource("1_5p0td")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_pmomf")
+frame_progress = 0.561469
+
+[node name="AnimatedSprite2D2" type="AnimatedSprite2D" parent="."]
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_s3gdp")
+frame_progress = 0.777182
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_18trn")

@@ -22,9 +22,6 @@ glow_hdr_threshold = 0.0
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_negid")
 
-[node name="Sprite2D2" type="Sprite2D" parent="."]
-texture = ExtResource("1_negid")
-
 [node name="player" parent="." instance=ExtResource("1_n2tkv")]
 
 [node name="Camera2D" type="Camera2D" parent="."]

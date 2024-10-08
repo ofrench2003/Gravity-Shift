@@ -1,0 +1,20 @@
+[gd_scene load_steps=5 format=3 uid="uid://ch5ewdksk5v48"]
+
+[ext_resource type="Texture2D" uid="uid://cu6vtxq6jfr4v" path="res://Assets/terrain/spikes.png" id="1_0l3bp"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_lcgdx"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5xri"]
+texture = ExtResource("1_0l3bp")
+0:0/0 = 0
+0:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -0.9375, 8, -1.00226, 8, 8, -8, 8)
+
+[sub_resource type="TileSet" id="TileSet_4vtrv"]
+physics_layer_0/collision_layer = 4
+physics_layer_0/collision_mask = 0
+physics_layer_0/physics_material = SubResource("PhysicsMaterial_lcgdx")
+sources/0 = SubResource("TileSetAtlasSource_y5xri")
+
+[node name="spikes" type="TileMapLayer" groups=["danger"]]
+scale = Vector2(4, 4)
+tile_set = SubResource("TileSet_4vtrv")

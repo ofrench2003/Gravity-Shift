@@ -54,7 +54,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 
-	## FRICTION
+	## FRICTION ##
 	if (is_on_floor() or is_on_ceiling()) and directionMagnitude in [UP, DOWN]:
 		velocity.x = lerpf(velocity.x, 0, delta * slowSpeed)
 	if is_on_wall():
@@ -85,3 +85,11 @@ func _physics_process(delta: float) -> void:
 			leftVal = lerpf(leftVal, 0, blendSpeed * delta)
 			rightVal = lerpf(rightVal, 1, blendSpeed * delta)
 	
+	
+	## SPIKES ##
+	
+
+
+func _on_danger_detect_body_entered(body: Node2D) -> void:
+	if body.is_in_group("danger"):
+		print("AAAAAA")

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://cdw2vme0du7xy"]
+[gd_scene load_steps=20 format=3 uid="uid://cdw2vme0du7xy"]
 
 [ext_resource type="Texture2D" uid="uid://djsbm5in1so4" path="res://Assets/player.png" id="1_8t4ho"]
 [ext_resource type="Script" path="res://Scenes&Scripts/player/player.gd" id="1_fyaxp"]
@@ -142,8 +142,23 @@ nodes/right/node = SubResource("AnimationNodeBlend2_mwg1n")
 nodes/right/position = Vector2(120, 140)
 node_connections = [&"down", 0, &"animUp", &"down", 1, &"animDown", &"left", 0, &"down", &"left", 1, &"animLeft", &"output", 0, &"right", &"right", 0, &"left", &"right", 1, &"animRight"]
 
-[node name="player" type="CharacterBody2D"]
+[sub_resource type="Environment" id="Environment_0k4pe"]
+background_mode = 3
+glow_enabled = true
+glow_levels/1 = 16.0
+glow_levels/2 = 16.0
+glow_levels/3 = 16.0
+glow_levels/4 = 16.0
+glow_intensity = 0.1
+glow_strength = 0.8
+glow_mix = 0.282
+glow_blend_mode = 1
+glow_hdr_threshold = 0.0
+
+[node name="player" type="CharacterBody2D" groups=["player"]]
 texture_filter = 1
+collision_layer = 2
+collision_mask = 9
 script = ExtResource("1_fyaxp")
 
 [node name="sprite" type="Node2D" parent="."]
@@ -171,3 +186,16 @@ anim_player = NodePath("../AnimationPlayer")
 parameters/down/blend_amount = 0
 parameters/left/blend_amount = 0.0
 parameters/right/blend_amount = 0
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_0k4pe")
+
+[node name="dangerDetect" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="dangerDetect"]
+position = Vector2(-4.76837e-07, 4.76837e-07)
+shape = SubResource("RectangleShape2D_jrs3f")
+
+[connection signal="body_entered" from="dangerDetect" to="." method="_on_danger_detect_body_entered"]
