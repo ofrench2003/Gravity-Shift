@@ -22,4 +22,3 @@ position = Vector2(227, 966)
 position = Vector2(1309, 542)
 
 [node name="spikes" parent="." instance=ExtResource("5_bjhf5")]
-tile_map_data = PackedByteArray("AAAMAA8AAAAAAAAAAAANAA8AAAAAAAAAAAAOAA8AAAAAAAAAAAAPAA8AAAAAAAAAAAAQAA8AAAAAAAAAAAARAA8AAAAAAAAAAAA=")
